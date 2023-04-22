@@ -1,6 +1,6 @@
 // Store the Html elements
-const latitudeEl = document.getElementById('lat');
-const longitudeEl = document.getElementById('lon');
+const latitudeElement = document.getElementById('lat');
+const longitudeElement = document.getElementById('lon');
 const tableEl = document.getElementById('allData');
 const mapBox = document.getElementById('mapBox');
 
@@ -11,12 +11,11 @@ const apiKey = `08d38c5694fd7a8b0417ae5b6c7edacf`;
 
 const run = function () {
   navigator.geolocation.getCurrentPosition((currentPosition) => {
-    console.log(currentPosition);
     latitude = currentPosition.coords.latitude;
     longitude = currentPosition.coords.longitude;
 
-    latitudeEl.textContent = latitude;
-    longitudeEl.textContent = longitude;
+    latitudeElement.textContent = latitude;
+    longitudeElement.textContent = longitude;
     console.log('latitude: ', latitude, 'longitude: ', longitude);
 
     liveMap(latitude, longitude);
@@ -32,38 +31,38 @@ const run = function () {
     }
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
-      .then((r) => r.json())
-      .then((data) => {
+      .then((res) => res.json())
+      .then((allData) => {
         const html = `
         <tr>
-        <td>Location:  ${data.name}</td>
+        <td>Location:  ${allData.name}</td>
         </tr>
         <tr>
         <td>Lat:  ${latitude}</td>
         <td>Long:  ${longitude}</td>
         </tr>
         <tr>
-        <td>Timezone:  ${data.timezone}</td>
+        <td>Timezone:  ${allData.timezone}</td>
         </tr>
         <tr>
-        <td>Wind Speed:  ${data.wind.speed}</td>
+        <td>Wind Speed:  ${allData.wind.speed}</td>
         </tr>
         <tr>
-        <td>Humidity:  ${data.main.humidity}</td>
+        <td>Humidity:  ${allData.main.humidity}</td>
         </tr>
         <tr>
-        <td>Wind Direction(in deg):  ${data.wind.deg}</td>
+        <td>Wind Direction(in deg):  ${allData.wind.deg}</td>
         </tr>
         <tr>
-        <td>Pressure:  ${data.main.pressure}</td>
+        <td>Pressure:  ${allData.main.pressure}</td>
         </tr>
         <tr>
-        <td>Feels Like:${data.main.feels_like}</td>
+        <td>Feels Like:${allData.main.feels_like}</td>
         </tr>
         `
         tableEl.innerHTML = html;
-        console.log('open weather data: ', data)
-      }).catch((err) => alert(err.message))
+        // console.log('open weather data: ', allData)
+      }).catch((error) => alert(error.message))
   }, () => {
     alert('Sorry could not detect your current location.')
   })
