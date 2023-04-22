@@ -14,8 +14,8 @@ const run = function () {
     latitude = currentPosition.coords.latitude;
     longitude = currentPosition.coords.longitude;
 
-    latitudeElement.textContent = latitude;
-    longitudeElement.textContent = longitude;
+    latitudeElement.textContent += " " + latitude;
+    longitudeElement.textContent += " " + longitude;
     console.log('latitude: ', latitude, 'longitude: ', longitude);
 
     liveMap(latitude, longitude);
