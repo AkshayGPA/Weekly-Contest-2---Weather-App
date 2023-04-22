@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+body {
+  margin: 0 0 50px 0;
+}
+
+.headings {
+  display: block;
+  margin: 0;
+  width: 40%;
+  font-size: 60px;
+  font-family: 'Inter', sans-serif;
+}
+
+#heading1 {
+  margin: 0 auto;
+  padding: 80px 0px 50px 0;
+  font-weight: bold;
+}
+
+#section1 {
+  height: 1300px;
+  padding-left: 150px;
+  padding-right: 150px;
+  background-color: rgb(36, 35, 35);
+  color: white;
+}
+
+#lat, #lon {
+  display: inline-block;
+  padding: 5px;
+  width: 48%;
+  font-size: 1.3rem;
+}
+
+#mapBox {
+  height: 665px;
+  width: 100%;
+  border: 2px solid white;
+  background-color: azure;
+  margin-top: 1.5rem;
+}
+
+#heading2 {
+  margin: 120px auto 70px 70px;
+  font-weight: bold;
+}
+
+#weatherData {
+  /* padding: 10px; */
+  margin: 2rem;
+  border: 2px solid black;
+}
+
+.table {
+  padding: 10px;
+}
+
+td {
+  width: 15rem;
+  padding: 0.4rem;
+}
